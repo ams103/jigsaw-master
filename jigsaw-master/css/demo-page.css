@@ -1,0 +1,73 @@
+
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #15ffe7;
+  line-height: 140%;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+
+}
+
+.main {
+  
+  margin: 0 auto;
+}
+
+.browsehappy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1em;
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+img {
+  border: none;
+}
+
+p
+ {
+    font-family: 'Roboto', sans-serif;
+}
+
+ {
+  /*display: inline-block;*/
+  /*vertical-align: middle;*/
+  margin: .4em;
+  padding: 1em;
+  cursor: pointer;
+  background: #e1e1e1;
+  text-decoration: none;
+  color: #666;
+  /* Prevent highlight colour when element is tapped */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.effects {
+  margin-top: 6em;
+  height: 250px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+h3 {
+  margin: 0;
+}
+
+
+
