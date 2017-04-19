@@ -37,25 +37,25 @@ div.pieces {position: absolute; width: 60px; height: 60px;
 
 #grid0, #grid5, #grid10, #grid15, #grid20 
            {left: 160px}
-#piece0, #piece5, #piece10, #piece15, #piece20 
+#piece0, #piece5, #piece10, #piece15, #piece20
            {left: 510px}
 
 #grid1, #grid6, #grid11, #grid16, #grid21 
            {left: 222px}
-#piece1, #piece6, #piece11, #piece16, #piece21 
+#piece1, #piece6, #piece11, #piece16, #piece21
            {left: 572px}
 
 #grid2, #grid7, #grid12, #grid17, #grid22 
            {left: 284px}
-#piece2, #piece7, #piece12, #piece17, #piece22 
+#piece2, #piece7, #piece12, #piece17, #piece22
            {left: 634px}
 
 #grid3, #grid8, #grid13, #grid18, #grid23 
            {left: 346px}
-#piece3, #piece8, #piece13, #piece18, #piece23 
+#piece3, #piece8, #piece13, #piece18, #piece23
            {left: 696px}
 
 #grid4, #grid9, #grid14, #grid19, #grid24 
            {left: 408px}
-#piece4, #piece9, #piece14, #piece19, #piece24 
+#piece4, #piece9, #piece14, #piece19, #piece24
            {left: 758px}

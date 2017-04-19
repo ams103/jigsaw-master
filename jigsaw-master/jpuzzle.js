@@ -109,22 +109,11 @@ var hoverGrid = null;
 
 window.onload = init;
 
-//Reloads the current Web page, thus re-arranging the puzzle
-function jumbleIt() {
-   window.location.reload();
-}
-
-//Places the puzzle images in the current order as background images for the grid squares
-function solveIt() {
-   for (var i = 0; i < grids.length; i++) {
-      pieces[i].style.backgroundImage = "";
-      grids[i].style.backgroundImage = "url(images/piece"+i+".jpg)";
-   }
-}
 
 
-/* Sets up and initializes the Web page, defining the grid and pieces array,
-      and appying event handlers to mouse and keyboard actions
+
+/* S , ets up and initializes the Web page, defining the grid and pieces array,
+      and applying event handlers to mouse and keyboard actions
 */      
 function init() {
 
@@ -158,10 +147,7 @@ function init() {
    document.onkeydown  =  keyGrab;
    keyPiece  =  pieces[0];
    keyIndex  =  0;
-   
 
-   document.getElementById("jumble").onclick  =  jumbleIt;
-   document.getElementById("solve").onclick  =  solveIt;
 }
 
 
@@ -270,3 +256,46 @@ function  mouseDrop(e)  {
 }
 
 
+$(document).ready(function(){
+    animateDiv();
+
+});
+
+function makeNewPosition(){
+
+    // Get viewport dimensions (remove the dimension of the div)
+    var h = $(window).height() - 50;
+    var w = $(window).width() - 50;
+
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+
+    return [nh,nw];
+
+}
+
+function animateDiv(){
+    var newq = makeNewPosition();
+    var oldq = $('.pieces').offset();
+    var speed = calcSpeed([oldq.top, oldq.left], newq);
+
+    $('.pieces').animate({ top: newq[0], left: newq[1] }, speed, function(){
+      animateDiv();
+    });
+
+};
+
+function calcSpeed(prev, next) {
+
+    var x = Math.abs(prev[1] - next[1]);
+    var y = Math.abs(prev[0] - next[0]);
+
+    var greatest = x > y ? x : y;
+
+    var speedModifier = 0.30;
+
+    var speed = Math.ceil(greatest/speedModifier);
+
+    return speed;
+
+}
