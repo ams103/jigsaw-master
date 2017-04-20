@@ -255,17 +255,16 @@ function  mouseDrop(e)  {
    }
 }
 
-
 $(document).ready(function(){
-    animateDiv();
+   //animateDiv();
 
 });
 
 function makeNewPosition(){
 
     // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - 50;
-    var w = $(window).width() - 50;
+    var h = $(window).height() - 250;
+    var w = $(window).width() - 500;
 
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
@@ -275,13 +274,18 @@ function makeNewPosition(){
 }
 
 function animateDiv(){
-    var newq = makeNewPosition();
-    var oldq = $('.pieces').offset();
-    var speed = calcSpeed([oldq.top, oldq.left], newq);
+    for(var i = 0; i < pieces.length; i++) {
+        var newPiece = '#piece' + i;
+        var newq = makeNewPosition();
+        var oldq = $('.pieces').offset();
+        var speed = calcSpeed([oldq.top, oldq.left], newq);
+        console.log(newPiece);
 
-    $('.pieces').animate({ top: newq[0], left: newq[1] }, speed, function(){
-      animateDiv();
-    });
+        $('#piece' + i).animate({top: newq[0], left: newq[1]}, speed, function(){
+            animateDiv();
+        });
+
+    }
 
 };
 
@@ -292,7 +296,7 @@ function calcSpeed(prev, next) {
 
     var greatest = x > y ? x : y;
 
-    var speedModifier = 0.30;
+    var speedModifier = 0.15;
 
     var speed = Math.ceil(greatest/speedModifier);
 

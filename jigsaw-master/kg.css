@@ -12,7 +12,7 @@ input      {margin: 0 20px;
 
 div.grid   {position: absolute; width: 60px; height: 60px;
             border: 1px solid rgb(0, 0, 0); background-color: #15ffe7; }
-div.pieces {position: absolute; width: 60px; height: 60px;
+div.pieces {position: fixed; width: 60px; height: 60px;
             border: 1px solid rgb(0, 0, 0); }
 
 #grid0, #grid1, #grid2, #grid3, #grid4,
