@@ -148,13 +148,15 @@ function init() {
    keyPiece  =  pieces[0];
    keyIndex  =  0;
 
+   //Must instantiate pieces before calling animateDiv().
+   animateDiv();
 }
 
 
 function  keyGrab(e)  {
    var  evt  =  e  ||  window.event;
    if  (evt.keyCode  ==  32)  {toggleMode(); return false}
-   
+
 
 }
 
@@ -212,7 +214,7 @@ function mouseGrab(e) {
    mousePiece.style.zIndex = maxZ; // Place the piece above other objects
 
    mousePiece.style.cursor = "move";
-   
+
    var  mouseX  =  evt.clientX;  //  x-coordinate  of  pointer
    var  mouseY  =  evt.clientY;  //  y-coordinate  of  pointer
 
@@ -255,16 +257,20 @@ function  mouseDrop(e)  {
    }
 }
 
-$(document).ready(function(){
-   //animateDiv();
 
+
+$(document).ready(function(){
+    //animateDiv();
 });
 
+/*makeNewPosition()
+        Retrieve window width and height
+        then set a new width and height randomly and reutrn that
+ */
 function makeNewPosition(){
-
-    // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - 250;
-    var w = $(window).width() - 500;
+    // Get viewport dimensions (remove the dimension of the div (50x50))
+    var h = $(window).height() - 50;
+    var w = $(window).width() - 50;
 
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
@@ -273,7 +279,13 @@ function makeNewPosition(){
 
 }
 
+/*animateDiv()
+        set new position from makeNewPosition
+        set old position equal to the coordinates of the element relative to the document
+ */
 function animateDiv(){
+
+    //Loop through each piece and assign a random new position
     for(var i = 0; i < pieces.length; i++) {
         var newPiece = '#piece' + i;
         var newq = makeNewPosition();
@@ -281,7 +293,7 @@ function animateDiv(){
         var speed = calcSpeed([oldq.top, oldq.left], newq);
         console.log(newPiece);
 
-        $('#piece' + i).animate({top: newq[0], left: newq[1]}, speed, function(){
+        $('#piece' + i).animate({ top: newq[0], left: newq[1] }, speed, function(){
             animateDiv();
         });
 
@@ -289,6 +301,9 @@ function animateDiv(){
 
 };
 
+/*calcSpeed(prevv, next)
+        calculate speed based on old and new position
+ */
 function calcSpeed(prev, next) {
 
     var x = Math.abs(prev[1] - next[1]);
@@ -296,7 +311,7 @@ function calcSpeed(prev, next) {
 
     var greatest = x > y ? x : y;
 
-    var speedModifier = 0.15;
+    var speedModifier = 0.20;
 
     var speed = Math.ceil(greatest/speedModifier);
 
