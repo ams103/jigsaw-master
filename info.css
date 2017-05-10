@@ -1,0 +1,162 @@
+body {
+    position: relative;
+}
+
+
+/*Denna kod är till för navbaren när man kollar position osv.*/
+.affix {
+    top:0px;
+    width: 100%;
+    z-index: 9999 !important;
+}
+/* Denna säger åt alla navbars att dom ska ligga på plats 0 i margin och ha kantradie 0 */
+.navbar {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+/* Vet inte riktigt vad denna gör just nu ??*/
+.affix ~ .container-fluid {
+   position: relative;
+   top: 50px;
+}
+
+/* Denna stylar texten i varje sektion */
+
+
+h1{
+  text-align: center;
+  margin: auto;
+  padding: auto;
+  font-size: 36px;
+}
+
+p{
+  text-align: center;
+  margin: 14px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.referenser{
+  text-align: center;
+
+}
+
+.bildspel{
+  text-align: center;
+  margin: 0 auto;
+  padding: 0
+}
+
+.container-fluid{
+	padding:0;
+}
+
+
+
+/*Section 1 är styling för hela fönstret med huvudlogo bilden*/
+#section1 {padding-top:15px;  padding-bottom:15px; padding-right:0px; padding-left:0px;  margin:auto; background-color: black; color:#79F2F2; border-color:#79F2F2; border-style: ridge; border-width: 10px;}
+#section3 {padding-bottom:15px; padding-top:15px; height:auto; color: #79F2F2; background-color: black; text-align: center;  font-size:25px; border-color: #79F2F2; border-right-style:ridge; border-left-style: ridge; border-width: 10px;}
+#section5 {padding-bottom:15px; padding-top:15px; height:auto; color: #79F2F2; background-color: black; text-align: center;  font-size:25px;border-color: #79F2F2; border-style: ridge; border-width: 10px;}
+#section6 {padding-bottom:15px; padding-top:15px; height:auto; color: #79F2F2; background-color: black; text-align: center;  font-size:25px;border-color: #79F2F2; border-right-style:ridge; border-left-style: ridge; border-width: 10px;border-bottom-style:ridge;}
+*, *:before, *:after {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+.content {
+    position:relative;
+    width:70%;
+    margin:3px auto 0 auto;
+    min-width:300px;
+
+}
+
+.content ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+    border:5px solid #CCC;
+    background: rgba(40,40,40,0.75);
+}
+.content ul li{
+    position: relative;
+    color:#FFF;
+    font-family: helvetica;
+    padding:2% 5%;
+    border-bottom: 1px solid #555;
+}
+
+.content ul li:last-child{
+    border-bottom:none;
+}
+
+.name{
+    font-weight:bold;
+}
+.count{
+    display:inline-block;
+    float:right;
+    color:#F00;
+    font-weight:bold;
+}
+.count:after{
+    content:' Seconds';
+    color:#CCC;
+    font-size:80%;
+    font-weight:normal;
+}
+
+
+/********* BLING **********/
+.content ul{
+    border-radius: 20px;
+}
+
+.animate {
+    -moz-animation: flashIt 0.2s ease 1;
+    -webkit-animation: flashIt 0.2s ease 1;
+    animation: flashIt 0.2s ease 1;
+}
+
+.animate .countold{
+    -moz-animation: spinIt 0.3s ease 1;
+    -webkit-animation: spinIt 0.3s ease 1;
+    animation: spinIt 0.3s ease 1;
+}
+
+
+@-moz-keyframes flashIt {
+    100% { opacity: 0; background-color: #FFF;}
+}
+@-webkit-keyframes flashIt {
+    100% { opacity: 0; background-color: #FFF;}
+}
+@keyframes flashIt {
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes spinIt {
+    20% {-moz-transform: rotate(-10deg)}
+    40% {-moz-transform: rotate(10deg)}
+    60% {-moz-transform: rotate(-10deg)}
+    80% {-moz-transform: rotate(10deg)}
+    100% {-moz-transform: rotate(-10deg)}
+}
+@-webkit-keyframes spinIt {
+    20% {-webkit-transform: rotate(-10deg)}
+    40% {-webkit-transform: rotate(10deg)}
+    60% {-webkit-transform: rotate(-10deg)}
+    80% {-webkit-transform: rotate(10deg)}
+    100% {-webkit-transform: rotate(-10deg)}
+}
+@keyframes spinIt {
+     20% {transform: rotate(-10deg)}
+     40% {transform: rotate(10deg)}
+     60% {transform: rotate(-10deg)}
+     80% {transform: rotate(10deg)}
+     100% {transform: rotate(-10deg)}
+ }
